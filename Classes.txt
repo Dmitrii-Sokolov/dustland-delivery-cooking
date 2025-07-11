@@ -1,0 +1,12 @@
+BaseSalt : Spice, Salt, Seasoning
+BaseSweet : Honey, Sugar
+Wine : Beer, Fruit Wine, Liquor
+Fruit : Fruit, Canned Fruit
+Vegetables : Vegetables, Dried Vegetables
+Meat : Chicken, Pork, Salt Pork, Ham
+Milk : Milk, Cheese
+Seafood : Crab, Prawn, Fish, Shrimp, Scallop, Blind Tetra, Crystal Prawn, Threadfin
+Game : Rabbit, Venison, Quail, Squab, Pheasant, Cave Snake, Bat, Salamander
+Mushroom : Agaric, Morel, Matsutake, Button Mushroom, Oyster Mushroom
+HumanMeat : Human Meat, Infected Meat
+Insects : Scorpion, Millipede, Beetle
