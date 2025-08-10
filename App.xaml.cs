@@ -15,6 +15,7 @@ namespace DustlandDeliveryCooking
 
     public Recipe[] Recipes { get; private set; } = [];
     public IngredientClass[] Classes { get; private set; } = [];
+    public HashSet<string> Ingredients { get; private set; } = [];
 
     public App()
     {
@@ -25,6 +26,21 @@ namespace DustlandDeliveryCooking
     {
       LoadRecipes();
       LoadClasses();
+
+      foreach (var recipe in Recipes)
+      {
+          foreach (var ingredient in recipe.OptionalIngredients)
+              Ingredients.Add(ingredient);
+
+          foreach (var ingredient in recipe.MandatoryIngredients)
+              Ingredients.Add(ingredient);
+      }
+
+      MessageBox.Show($"Total unique ingredients: {Ingredients.Count}");
+      MessageBox.Show(Ingredients.Aggregate(
+        new StringBuilder(),
+        (sb, ingredient) => sb.AppendLine(ingredient),
+        sb => sb.ToString()));
     }
 
     private void LoadRecipes()
@@ -37,7 +53,7 @@ namespace DustlandDeliveryCooking
                .Select(p => p.Trim())
                .ToArray(),
           parts.Where(s => s[^1] == '?')
-               .Select(p => p.Trim())
+               .Select(p => p.Trim('?'))
                .ToArray());
       });
     }
